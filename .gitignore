@@ -1,0 +1,5 @@
+/hugo/
+/resources/
+hugo.toml
+.hugo_build.lock
+desktop.ini
