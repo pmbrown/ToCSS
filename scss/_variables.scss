@@ -69,7 +69,7 @@
   @if $enable-theme-switch {
     @if $enable-icon-styles {
       @if $enable-icon-svg {
-        --switch-ico: var(--sun);
+        --switch-ico: var(--switch-off);
       }
     }
   }
@@ -91,7 +91,7 @@
     @if $enable-theme-switch {
       @if $enable-icon-styles {
         @if $enable-icon-svg {
-          --switch-ico: var(--moon);
+          --switch-ico: var(--switch-on);
         }
       }
     }
