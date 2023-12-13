@@ -1,4 +1,4 @@
-/*! ToCSS v1.0. Copyright (c) 2023 Phil Brown. Licensed under MIT (https://github.com/pmbrown/ToCSS/blob/main/LICENSE) */
+/*! ToCSS v1.1. Copyright (c) 2023 Phil Brown. Licensed under MIT (https://github.com/pmbrown/ToCSS/blob/main/LICENSE) */
 
 // Styles and variables
 $enable-theme-switch:     true;
@@ -8,6 +8,7 @@ $enable-scheme-colors:    true;
 $enable-primary-colors:   true;
 
 // Utilities
+$enable-accordions:       true;
 $enable-backgrounds:      true;
 $enable-borders:          true;
 $enable-buttons:          true;
@@ -19,9 +20,10 @@ $enable-grid:             true;
 $enable-icon-styles:      true;
 $enable-icon-svg:         true;
 $enable-images:           true;
+$enable-shadows:          true;
 $enable-spacing:          true;
 $enable-text:             true;
-$enable-shadows:          true;
+$enable-theme-button:     true;
 
 // Build enabled
 @import "properties";
