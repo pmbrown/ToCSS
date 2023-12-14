@@ -46,7 +46,7 @@
     }
   }
   
-  @if $enable-icon-styles {
+  @if $enable-icon-styles or $enable-theme-button or $enable-accordions or $enable-dialogs or $enable-icon-svg {
     --ico: var(--color);
     --ico-va: -.115em;
   }  

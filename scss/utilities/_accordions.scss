@@ -1,8 +1,10 @@
 //  ------------------------------------------------------------
-//  Details element
+//  Details disclosure element accordions
+//  See HTML examples below for usage.
+//  Firefox currently requires accordion.js (assets/js).
 //  ------------------------------------------------------------
 
-@if $enable-accordions and $enable-icon-svg {
+@if $enable-accordions {
 
 :where(html) {
   --summary-text: var(--text);
@@ -15,8 +17,14 @@
   --details-border-width: 1px;
   --details-border-radius: .125em; 
   --details-max-width: initial;
-  --details-open: var(--arrowdown);
-  --details-closed: var(--arrowup);
+  @if $enable-icon-svg {
+    --details-open: var(--arrowdown);
+    --details-closed: var(--arrowup);
+  }
+  @else {
+    --details-open: #{$arrowdown};
+    --details-closed: #{$arrowup};
+  }
 }
 
 .details, .accordion {
@@ -93,17 +101,15 @@
   --mb: 0;
 }
 
-// Icons
+// Open and close icons.
+// @extend %icon-mask chains all icon styles together to minimise code.
+// @include icon-mask can be used to duplicate icon styles.
 .details summary:after, .accordion summary:after {
   --ico: var(--summary-ico);
-  @include icon-mask;
+  --svg: var(--details-open);
+  @extend %icon-mask;
   margin-inline-start: auto;
   margin-block-start: calc(var(--fs) / 4);
-}
-
-
-.details summary:after, .accordion summary:after {
-  --svg: var(--details-open);
 }
 
 .details[open] summary:after, .accordion details[open] summary:after {
@@ -168,3 +174,37 @@
 } // END [@if/scheme-colors]
 
 } // END [@if/details]
+
+// ------------------------------------
+// Accordion example using [.accordion]
+// ------------------------------------
+// <div role="group" class="accordion">
+// <details name="accordion-1" open>
+// <summary>Details plus</summary>
+// <div class="details-body">
+// <p>Body text</p>
+// </div>
+// </details>
+// <details name="accordion-1">
+// <summary>Details plus</summary>
+// <div class="details-body">
+// <p>Body text</p>
+// </div>
+// </details>
+// <details name="accordion-1">
+// <summary>Details plus</summary>
+// <div class="details-body">
+// <p>Body text</p>
+// </div>
+// </details>
+// </div>
+
+// -----------------------------------
+// Standalone example using [.details]
+// -----------------------------------
+// <details class="details">
+// <summary>Details arrow</summary>
+// <div class="details-body">
+// <p>Body text</p>
+// </div>
+// </details>

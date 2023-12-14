@@ -2,14 +2,8 @@
 //  Theme switch button
 //  Requires theme.js or theme.min.js (assets/js) loaded prior 
 //  to the style sheet in the head of the HTML.
-//  Button styles optimized for use with forms_buttons enabled.
+//  See _svg.scss for Sass icon variables used below.
 //  ------------------------------------------------------------
-
-// SVG icon options
-$sun:           url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m7.47 0v2.26h1.15v-2.26zm-4.9 2.19-0.812 0.8 1.62 1.6 0.812-0.8zm10.8 0-1.62 1.6 0.812 0.8 1.62-1.6zm-5.29 1.25s-4.59 0-4.59 4.52c0 4.52 4.59 4.52 4.59 4.52s4.59 0 4.59-4.52c0-4.52-4.59-4.52-4.59-4.52zm5.67 3.92v1.13h2.3v-1.13zm-13.7 0.0243v1.13h2.3v-1.13zm3.01 4-1.62 1.6 0.812 0.8 1.62-1.6zm9.99 0-0.812 0.8 1.62 1.6 0.812-0.8zm-5.54 2.36v2.26h1.15v-2.26z'/></svg>");
-$moon:          url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m3.6 1s-2.27 2.27-2.5 5.39c-0.308 1.82 0.062 4.02 2.26 6.22 2.06 2.06 4.11 2.51 5.86 2.31 3.46-0.231 5.79-2.51 5.79-2.51s-4.21 1.35-8.48-2.93c-4.26-4.26-2.9-8.46-2.9-8.46z'/></svg>");
-$radio-off:     url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m13.5 8a5.5 5.5 0 0 1-5.5 5.5 5.5 5.5 0 0 1-5.5-5.5 5.5 5.5 0 0 1 5.5-5.5 5.5 5.5 0 0 1 5.5 5.5z' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-$radio-on:      url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path d='m13.5 8a5.5 5.5 0 0 1-5.5 5.5 5.5 5.5 0 0 1-5.5-5.5 5.5 5.5 0 0 1 5.5-5.5 5.5 5.5 0 0 1 5.5 5.5z' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round'/><path d='m4.5 8s0-3.5 3.5-3.5 3.5 3.5 3.5 3.5 0 3.5-3.5 3.5-3.5-3.5-3.5-3.5z' fill='currentColor'/></svg>");
 
 $enable-celestial:     false;
 $enable-radio:         true;
@@ -35,13 +29,16 @@ $enable-radio:         true;
   --svg: var(--switch-ico);
 }
 
+// @extend %icon-mask chains all icon styles together, minimises code.
+// @include icon-mask can be used to duplicate icon styles, adds code.
+// Alternatively, if icon-styles are enabled [class="ico"] can be added 
+// to the button element and the [:before] style can be disabled.
 #themes:before {
-  @extend %icon-mask; // Chains with .ico styles (if used).
-//  @include icon-mask; // Duplicates styles.
+  @extend %icon-mask;
 }
 
 @if $enable-celestial {
-  .celestial {
+  #themes {
     --fs: var(--sml);
     --btn-pb: .25rem;
     --btn-pi: .35rem;
@@ -51,7 +48,7 @@ $enable-radio:         true;
 } // END [if/celestial]
 
 @if $enable-radio {
-  .radio {
+  #themes {
     --fs: var(--sml);
     --btn-bg: transparent;
     --btn-hover: transparent;
@@ -63,15 +60,15 @@ $enable-radio:         true;
     background-color: var(--btn-bg);
   }
   
-  .radio:hover {
+  #themes:hover {
     --color: var(--link-hover);
   }
   
-  .radio:hover:after {
+  #themes:hover:after {
     color: var(--text);
   }
   
-  .radio:after {
+  #themes:after {
     margin-inline-start: .075rem;
     word-spacing: -.15em;
   }

@@ -554,7 +554,7 @@ a > :where(code) {
   --table-mb: 0;
 }
 
-#themes:before, :where(.ico-btn):before, :where(.ico-block):before, :where(.ico-b):before, :where(.ico-a):after, :where(.ico):before {
+#themes:before, .details summary:after, .accordion summary:after, header [data-close]:before, :where(.ico-btn):before, :where(.ico-block):before, :where(.ico-b):before, :where(.ico-a):after, :where(.ico):before {
   display: inline-block;
   background-color: var(--ico);
   content: "";
@@ -1943,6 +1943,7 @@ a > :where(code) {
   --dialog-top: 1rem;
   --dialog-width: calc((100% - 6px) - 2em);
   --dialog-max-width: 30rem;
+  --dialog-close: var(--close);
 }
 
 dialog {
@@ -1989,20 +1990,17 @@ dialog header *:is(h1, h2, h3, h4, h5, h6) {
   padding-block-end: 0.4rem;
 }
 
-dialog header button {
+header [data-close] {
+  --svg: var(--dialog-close);
   --btn-bg: transparent;
   --btn-hover: transparent;
   border: none;
   margin-inline-start: 1rem;
 }
 
-dialog header button:is(:focus, :active) {
+header [data-close]:is(:focus, :active) {
   outline: none;
   box-shadow: none;
-}
-
-dialog header [data-close]:before {
-  --svg: var(--close);
 }
 
 .dialog-body {
@@ -2157,22 +2155,9 @@ dialog header [data-close]:before {
 
 .details summary:after, .accordion summary:after {
   --ico: var(--summary-ico);
-  display: inline-block;
-  background-color: var(--ico);
-  content: "";
-  width: var(--fs);
-  height: var(--fs);
-  vertical-align: var(--ico-va);
-  mask-image: var(--svg);
-  mask-repeat: no-repeat;
-  -webkit-mask-image: var(--svg);
-  -webkit-mask-repeat: no-repeat;
+  --svg: var(--details-open);
   margin-inline-start: auto;
   margin-block-start: calc(var(--fs) / 4);
-}
-
-.details summary:after, .accordion summary:after {
-  --svg: var(--details-open);
 }
 
 .details[open] summary:after, .accordion details[open] summary:after {
@@ -2238,7 +2223,7 @@ dialog header [data-close]:before {
   --svg: var(--switch-ico);
 }
 
-.radio {
+#themes {
   --fs: var(--sml);
   --btn-bg: transparent;
   --btn-hover: transparent;
@@ -2250,15 +2235,15 @@ dialog header [data-close]:before {
   background-color: var(--btn-bg);
 }
 
-.radio:hover {
+#themes:hover {
   --color: var(--link-hover);
 }
 
-.radio:hover:after {
+#themes:hover:after {
   color: var(--text);
 }
 
-.radio:after {
+#themes:after {
   margin-inline-start: 0.075rem;
   word-spacing: -0.15em;
 }
