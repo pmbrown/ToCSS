@@ -779,7 +779,6 @@ a > :where(code) {
 }
 
 .nolist li::marker {
-  display: none;
   content: "";
 }
 
@@ -1052,12 +1051,12 @@ a > :where(code) {
   --input-focus-color: var(--surf-3-light);
 }
 
-.auto, .passport, .landscape, .landscape-sm, .landscape-xs, .portrait {
+.auto, .passport, .landscape, .landscape-sm, .landscape-xs, .portrait, .portrait-sm {
   display: grid;
   grid-template-columns: var(--gtc);
 }
 
-:where(.auto, .passport, .landscape, .landscape-sm, .landscape-xs, .portrait) img {
+:where(.auto, .passport, .landscape, .landscape-sm, .landscape-xs, .portrait, .portrait-sm) img {
   object-fit: cover;
   aspect-ratio: var(--aspect-ratio);
   height: 100%;
@@ -1085,6 +1084,10 @@ a > :where(code) {
 
 .portrait {
   --aspect-ratio: 4 / 5;
+}
+
+.portrait-sm {
+  --aspect-ratio: 3 / 4;
 }
 
 .shadow {
@@ -1811,10 +1814,10 @@ a > :where(code) {
   content: "";
   display: block;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset-block-start: 0;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
 }
 
 .card-link :focus-visible {
