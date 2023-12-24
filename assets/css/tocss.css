@@ -2424,9 +2424,9 @@ header [data-close]:is(:focus, :active) {
 }
 
 :where(html) #themes:after {
-  content: "Dark off";
+  content: "Dark off"/"off";
 }
 
 :where([data-prefers-dark=true]) #themes:after {
-  content: "Dark on";
+  content: "Dark on"/"on";
 }
